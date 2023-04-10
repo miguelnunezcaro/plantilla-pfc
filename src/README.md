@@ -1,5 +1,5 @@
 # Código del Proyecto
 
-Esta carpeta contendrá todo el código del proyecto.
+Esta carpeta contiene el código del proyecto.
 
 

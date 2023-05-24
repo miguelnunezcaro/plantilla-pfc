@@ -29,4 +29,17 @@
             cursor: not-allowed;
         }
     }
+
+    select {
+        flex: 1;
+        border: none;
+        padding: calc(v.$separacion / 4);
+        border-radius: 15px;
+
+        &:disabled {
+            background-color: lighten(v.$negro, 30%);
+            color: v.$blanco;
+            cursor: not-allowed;
+        }
+    }
 }

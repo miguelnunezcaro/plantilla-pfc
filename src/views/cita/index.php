@@ -1,6 +1,10 @@
 <h1 class="nombrePagina">Crear Nueva Sesión</h1>
 <p class="descripcionPag">Elige tus servicios y rellene sus datos</p>
 
+<?php
+include_once __DIR__ . '/../templates/barra.php';
+?>
+
 <div class="app">
 
     <nav class="tabs">
@@ -29,8 +33,28 @@
             </div>
             <div class="campo">
                 <label for="hora">Hora</label>
-                <input type="time" id="hora" name="hora">
+                <!-- 
+                <input type="time" id="hora" name="hora" min="08:00" max="21:00" step='3600'>
+                -->
+                <select name="hora" id="hora">
+                    <option value="">Selecciona una hora</option>
+                    <option value="08:00">8:00</option>
+                    <option value="09:00">9:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="20:00">20:00</option>
+                    <option value="21:00">21:00</option>
+                </select>
             </div>
+            <input type="hidden" id="id" value="<?php echo $id; ?>">
         </form>
     </div>
     <div id="paso3" class="seccion contenido-resumen">
@@ -46,5 +70,8 @@
 
 
 <?php
-    $script = "<script src='build/js/app.js'></script>"
+    $script = "
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+    <script src='build/js/app.js'></script>
+    "
 ?>

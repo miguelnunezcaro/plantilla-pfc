@@ -54,7 +54,9 @@ class LoginController {
         ]);
     }
     public static function logout() {
-        echo 'Desde logout';
+        session_start();
+        $_SESSION = [];
+        header('Location: /');
     }
     public static function olvide(Router $router) {
 
@@ -75,7 +77,7 @@ class LoginController {
                     $usuario->crearToken();
                     $usuario->guardar();
 
-                    // TODO: Enviar el email
+                    
 
                     $email = new Email($usuario->email, $usuario->nombre, $usuario->apellidos, $usuario->token);
                     $email->enviarInstrucciones();

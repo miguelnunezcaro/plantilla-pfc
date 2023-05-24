@@ -1,28 +1,43 @@
-@use 'base/variables' as v;
-@use 'base/mixins' as m;
+@use "base/variables" as v;
+@use "base/mixins" as m;
 
 .seccion {
+  padding: 5rem 0;
+  display: none;
 
-    padding: 5rem 0;
-    display: none;
+  .text-center {
+    text-align: center;
+    color: v.$amarillo;
+  }
 
-    .text-center {
-        text-align: center;
-        color: v.$amarillo;
-    }
-
-    .title {
-        color: v.$amarillo;
-    }
+  .title {
+    color: v.$amarillo;
+  }
 }
 
 .mostrar {
-    display: block;
+  display: block;
 }
 
 .ocultar {
-    display: none;
+  display: none;
 }
 
+.nombre {
+  color: v.$amarillo;
+}
 
+.barra {
 
+  margin: v.$separacion 0;
+  margin-bottom: 7rem;
+  @include m.tablet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .boton {
+    @include m.boton(v.$verdeOscuro, v.$blanco);
+    margin: 0;
+  }
+}

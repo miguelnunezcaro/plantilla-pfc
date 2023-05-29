@@ -3,7 +3,7 @@
 <?php
 include_once __DIR__ . '/../templates/barra.php';
 ?>
-
+<h2 class="nombrePagina">Buscar Citas</h2>
 <div class="busqueda">
     <form class="formulario">
         <div class="campo">
@@ -14,4 +14,6 @@ include_once __DIR__ . '/../templates/barra.php';
     </form>
 </div>
 
-<div id="citas-admin"></div>
+<div id="citas-admin">
+    
+</div>

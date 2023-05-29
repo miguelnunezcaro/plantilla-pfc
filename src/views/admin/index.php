@@ -1,4 +1,4 @@
-<h1 class="nombrePagina">Panel de Administración</h1>
+<h1 class="nombrePagina">Panel de Admin</h1>
 
 <?php
 include_once __DIR__ . '/../templates/barra.php';
@@ -8,7 +8,7 @@ include_once __DIR__ . '/../templates/barra.php';
     <form class="formulario">
         <div class="campo">
             <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" name="fecha">
+            <input type="date" id="fecha" name="fecha" value="<?php echo $fecha; ?>">
         </div>
 
     </form>
@@ -20,9 +20,10 @@ include_once __DIR__ . '/../templates/barra.php';
 
         $idCita = 0;
 
-        foreach($sesiones as $sesion) {
+        foreach($sesiones as $key => $sesion) {
 
             if ($idCita !== $sesion->id) {
+                $total = 0;
 
                 
     ?>
@@ -34,10 +35,32 @@ include_once __DIR__ . '/../templates/barra.php';
         <p>Email: <span><?php echo $sesion->email ?></span></p>
         <p>Teléfono: <span><?php echo $sesion->telefono ?></span></p>
 
-        <h3 class="nombrePagina">Servicios</h3>
-        <?php $idCita = $sesion->id; } ?>
+        <h3 class="nombreServicio">Servicios:</h3>
+
+        <?php $idCita = $sesion->id; 
+        } $total += $sesion->precio ?>
+
         <p class="servicio"><?php echo $sesion->servicio . " " . $sesion->precio . "€"; ?></p>
 
+        <?php 
+            $actual = $sesion->id;
+            $proximo = $sesiones[$key + 1]->id;
+
+            if (esUltimo($actual, $proximo)) { ?>
+                
+                <p class="total">Precio total: <span><?php echo $total . "€" ?></span></p>
+
+            <?php
+
+            }
+        ?>
     <?php } ?>
     </ul>
 </div>
+
+
+<?php
+    $script = "
+    <script src='build/js/buscador.js'></script>
+    "
+?>

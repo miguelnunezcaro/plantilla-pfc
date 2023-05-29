@@ -12,6 +12,9 @@ class AdminController
     {
         session_start();
 
+        $fecha = date('Y-m-d');
+        
+
         // Consultar la base de datos
 
         $consulta = "SELECT sesiones.id, sesiones.hora, CONCAT( usuarios.nombre, ' ', usuarios.apellidos) as cliente, ";
@@ -30,7 +33,8 @@ class AdminController
 
         $router->render('admin/index', [
             'nombre' => $_SESSION['nombre'],
-            'sesiones' => $sesiones
+            'sesiones' => $sesiones,
+            'fecha' => $fecha
         ]);
     }
 }

@@ -377,9 +377,10 @@ function mostrarResumen() {
           title: "Cita Creada",
           text: "Tu cita ha sido creada correctamente",
         }).then(() => {
-          setTimeout(() => {
-            window.location.reload();
-          }, 3000);
+          window.location.reload();
+          // setTimeout(() => {
+          //   window.location.reload();
+          // }, 500);
         });
       }
     } catch (error) {

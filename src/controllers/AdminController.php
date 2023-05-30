@@ -12,7 +12,18 @@ class AdminController
     {
         session_start();
 
-        $fecha = date('Y-m-d');
+        isAdmin();
+
+        $fecha = $_GET['fecha'] ?? date('Y-m-d');
+        $fechas = explode('-', $fecha);
+
+        // debuguear($fechas);
+
+        if(!checkdate($fechas[1], $fechas[2], $fechas[0])) {
+            header('Location: /404');
+        }
+
+        // $fecha = date('Y-m-d');
         
 
         // Consultar la base de datos
@@ -26,7 +37,7 @@ class AdminController
         $consulta .= " ON sesionesServicios.sesionId=sesiones.id ";
         $consulta .= " LEFT OUTER JOIN servicios ";
         $consulta .= " ON servicios.id=sesionesServicios.servicioId ";
-        // $consulta .= " WHERE fecha =  '${fecha}' ";
+        $consulta .= " WHERE fecha =  '${fecha}' ";
 
         $sesiones = AdminCita::SQL($consulta);
 

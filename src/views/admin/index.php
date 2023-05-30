@@ -14,6 +14,12 @@ include_once __DIR__ . '/../templates/barra.php';
     </form>
 </div>
 
+<?php 
+    if (count($sesiones) === 0) {
+        echo "<h3 class='nombrePagina'>No hay citas en esta fecha</h3>";
+    }
+?>
+
 <div id="citas-admin">
     <ul class="sesiones">
     <?php
@@ -49,6 +55,11 @@ include_once __DIR__ . '/../templates/barra.php';
             if (esUltimo($actual, $proximo)) { ?>
                 
                 <p class="total">Precio total: <span><?php echo $total . "€" ?></span></p>
+
+                <form action="/api/eliminar" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $sesion->id; ?>">
+                    <input type="submit" class="boton-eliminar" value="Eliminar">
+                </form>
 
             <?php
 

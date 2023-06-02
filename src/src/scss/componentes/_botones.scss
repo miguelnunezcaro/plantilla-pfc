@@ -12,3 +12,7 @@
 .boton-cerrar-sesion {
     @include m.boton(orange, v.$blanco)
 }
+
+.boton-actualizar {
+    @include m.boton(v.$azul, v.$blanco); 
+}

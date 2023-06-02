@@ -8,3 +8,7 @@
 .boton-eliminar {
     @include m.boton(v.$rojo,v.$blanco);
 }
+
+.boton-cerrar-sesion {
+    @include m.boton(orange, v.$blanco)
+}

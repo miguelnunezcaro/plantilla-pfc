@@ -17,8 +17,13 @@ include_once __DIR__ . '/../templates/barra.php';
             </li>
 
             <div class="acciones-servicios">
-                <a href="/servicios/actualizar?id=<?php echo $servicio->id; ?>"
-                    class="boton-actualizar">Actualizar</a>
+                    <a href="/servicios/actualizar?id=<?php echo $servicio->id; ?>"
+                        class="boton-actualizar">Actualizar</a>
+
+                    <form action="/servicios/eliminar">
+                        <input type="hidden" name="id" value="<?php echo $servicio->id; ?>">
+                        <input type="submit" value="Eliminar" class="boton-eliminar">
+                    </form>
             </div>
 
     <?php

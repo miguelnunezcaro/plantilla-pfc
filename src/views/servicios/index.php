@@ -20,15 +20,14 @@ include_once __DIR__ . '/../templates/barra.php';
                     <a href="/servicios/actualizar?id=<?php echo $servicio->id; ?>"
                         class="boton-actualizar">Actualizar</a>
 
-                    <form action="/servicios/eliminar">
+                    <form action="/servicios/eliminar" method="POST">
                         <input type="hidden" name="id" value="<?php echo $servicio->id; ?>">
-                        <input type="submit" value="Eliminar" class="boton-eliminar">
+                        <input type="submit" class="boton-eliminar" value="Eliminar">
                     </form>
             </div>
 
     <?php
-        }
-            
+        }        
     ?>
     <div class="paginacion">
         <a type="submit" href="/admin" class="boton">Volver Atrás</a>

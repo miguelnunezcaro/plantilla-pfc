@@ -10,6 +10,7 @@ class ServicioController
     public static function index(Router $router)
     {
         session_start();
+        isAdmin();
 
         $servicios = Servicio::all();
 
@@ -21,6 +22,8 @@ class ServicioController
 
     public static function crear(Router $router)
     {
+        session_start();
+        isAdmin();
 
         $servicio = new Servicio;
         $alertas = [];
@@ -46,6 +49,7 @@ class ServicioController
     public static function actualizar(Router $router)
     {
         session_start();
+        isAdmin();
 
         if(!is_numeric($_GET['id'])) return;
 
@@ -72,23 +76,15 @@ class ServicioController
 
     public static function eliminar() {
 
+        session_start();
+        isAdmin();
+
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
             $id = $_POST['id'];
             $servicio = Servicio::find($id);
             $servicio->eliminar();
             header('Location: /servicios');
         }
     }
-
-    // public static function eliminar2() {
-
-    //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //         $id = $_POST['id'];
-
-    //         $cita = Cita::find($id);
-    //         $cita->eliminar();
-
-    //         header('Location:' . $_SERVER['HTTP_REFERER']);
-    //     }
-    // }
 }

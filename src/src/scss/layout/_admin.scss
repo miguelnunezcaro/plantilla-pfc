@@ -26,3 +26,16 @@
     }
 }
 
+.servicios {
+    @extend .sesiones;
+
+    .boton,
+    .boton-eliminar,
+    .boton-actualizar {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+}
+
+
+

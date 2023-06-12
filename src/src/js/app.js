@@ -147,20 +147,22 @@ function mostrarServicios(servicios) {
 function seleccionarServicio(servicio) {
   const { id } = servicio;
   const { servicios } = cita;
-
-  // Identificar el elemento seleccionado
   const divServicio = document.querySelector(`[data-id-servicio="${id}"]`);
 
-  // Comprobar si un servicio ya fue agregado
-
   if (servicios.some((agregado) => agregado.id === id)) {
-    // Eliminar
-    cita.servicios = servicios.filter((agregado) => agregado.id != id);
+    // Eliminar servicio si ya está seleccionado
+    cita.servicios = servicios.filter((agregado) => agregado.id !== id);
     divServicio.classList.remove("seleccionado");
   } else {
-    // Agregar
-    divServicio.classList.add("seleccionado");
-    cita.servicios = [...servicios, servicio];
+    if (servicios.length < 3) {
+      // Agregar servicio si no se excede el límite de tres
+      divServicio.classList.add("seleccionado");
+      cita.servicios = [...servicios, servicio];
+    } else {
+      console.log('hola');
+      // Mostrar mensaje de error si se excede el límite
+      mostrarAlerta("Solo puedes seleccionar un máximo de tres servicios.", "error", ".listadoServicios");
+    }
   }
 
   // console.log(cita);

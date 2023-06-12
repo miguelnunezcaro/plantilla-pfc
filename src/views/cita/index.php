@@ -2,7 +2,7 @@
 <p class="descripcionPag">Elige tus servicios y rellene sus datos</p>
 
 <?php
-include_once __DIR__ . '/../templates/barra.php';
+include_once __DIR__ . '/../templates/logout.php';
 ?>
 
 <div class="app">
